@@ -7,8 +7,9 @@ catch(Exception $e) {
 }
 
 
-$config = include 'includes/config.inc';
+$config = include 'includes/config.inc.php';
 
 
 $reponse = $bdd->query("SELECT temperature, humidite FROM releves ORDER BY id DESC LIMIT 0, 1");
 
+?>
