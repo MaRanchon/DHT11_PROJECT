@@ -1,5 +1,6 @@
 <?php
 
+
 class Measure
 {
     public $id;
@@ -7,11 +8,10 @@ class Measure
     public $humidite;
     public $datetime;
 
-    public function __construct($temperature, $humidite, $datetime)
+    public function __construct($temperature, $humidite)
     {
         $this->temperature = $temperature;
         $this->humidite = $humidite;
-        $this->datetime = $datetime;
     }
 }
 
