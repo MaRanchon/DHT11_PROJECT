@@ -48,6 +48,8 @@ class MeasureDaoTest extends TestCase
 
         $this->assertEquals("17", $newMeasure->temperature);
         $this->assertEquals("18", $newMeasure->humidite);
+
+        $this->measureDao->deleteMeasureById($id);
     }
 
     public function testReadMeasureById()
@@ -84,7 +86,7 @@ class MeasureDaoTest extends TestCase
         $this->assertEquals(21, $updatedUser->temperature);
         $this->assertEquals(21, $updatedUser->humidite);
 
-
+        $this->measureDao->deleteMeasureById($id);
     }
 
     public function testDeleteMeasureById()
