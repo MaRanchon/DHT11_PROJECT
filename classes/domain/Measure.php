@@ -1,5 +1,5 @@
 <?php
-
+namespace domain;
 
 class Measure
 {
