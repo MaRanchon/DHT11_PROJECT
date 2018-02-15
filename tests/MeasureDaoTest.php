@@ -46,20 +46,20 @@ class MeasureDaoTest extends TestCase
 
         $newMeasure = $this->measureDao->readMeasureById($id);
 
-        $this->assertEquals("18", $newMeasure->temperature);
-        $this->assertEquals("19", $newMeasure->humidite);
+        $this->assertEquals("17", $newMeasure->temperature);
+        $this->assertEquals("18", $newMeasure->humidite);
     }
 
-    /*public function testReadMeasureById()
+    public function testReadMeasureById()
     {
 
         $measure = $this->measureDao->readMeasureById(12);
 
         $this->assertEquals("96", $measure->temperature);
         $this->assertEquals("99", $measure->humidite);
-    }*/
+    }
 
-    /*public function testUpdateMeasure()
+    public function testUpdateMeasure()
     {
         $measure = new Measure(22, 22);
 
@@ -78,10 +78,22 @@ class MeasureDaoTest extends TestCase
         $this->assertEquals(21, $updatedUser->humidite);
 
 
-    }*/
+    }
 
-    /*public function testDeleteMeasureByDateTime()
+    public function testDeleteMeasureById()
     {
+        $measure = new Measure(24, 24);
 
-    }*/
+        $id = $this->measureDao->createMeasure($measure);
+
+        $newMeasure = $this->measureDao->readMeasureById($id);
+
+        $this->assertNotNull($newMeasure);
+
+        $this->measureDao->deleteMeasureById($id);
+
+        $deletedMeasure = $this->measureDao->readMeasureById($id);
+
+        $this->assertNull($deletedMeasure);
+    }
 }

@@ -18,6 +18,12 @@ class MeasureDao extends DaoBase
         $query->bindParam(":temperature", $measureObject->temperature);
         $query->bindParam(":humidite", $measureObject->humidite);
         $query->execute();
+
+        $id = $this->bdd->lastInsertId();
+
+        $measureObject->id = $id;
+
+        return $id;
     }
 
     public function readMeasureByDateTime($date) {
@@ -39,9 +45,10 @@ class MeasureDao extends DaoBase
     }
 
     public function readMeasureById($id) {
-        $result;
 
-        $query = $this->bdd->prepare("SELECT * FROM releve WHERE id = :id;");
+        $result = NULL;
+
+        $query = $this->bdd->prepare("SELECT temperature, humidite FROM releve WHERE id = :id;");
         $query->bindParam(":id", $id);
 
         if ($query->execute()) {

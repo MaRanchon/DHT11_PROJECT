@@ -19,5 +19,5 @@ var_dump($resultatTrouve);*/
 
 /*$daoTest->updateMeasure(32, $measureTest);*/
 
-/*$result = $daoTest->readMeasureById(14);
-var_dump($result);*/
+$result = $daoTest->readMeasureById(14);
+var_dump($result);
